@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ResQNet Design System - Dark theme with electric blue accents */
+
+@layer base {
+  :root {
+    /* ResQNet Brand Colors */
+    --charcoal: 216 17% 6%;
+    --charcoal-light: 216 15% 12%;
+    --charcoal-lighter: 216 12% 18%;
+    --electric-blue: 195 100% 50%;
+    --electric-blue-dark: 195 100% 40%;
+    --electric-blue-light: 195 100% 60%;
+    --electric-blue-glow: 195 100% 80%;
+    --text-primary: 0 0% 98%;
+    --text-secondary: 0 0% 75%;
+    --text-muted: 0 0% 60%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --danger: 0 84% 60%;
+    
+    /* System Colors mapped to ResQNet theme */
+    --background: var(--charcoal);
+    --foreground: var(--text-primary);
+    --card: var(--charcoal-light);
+    --card-foreground: var(--text-primary);
+    --popover: var(--charcoal-light);
+    --popover-foreground: var(--text-primary);
+    --primary: var(--electric-blue);
+    --primary-foreground: var(--charcoal);
+    --secondary: var(--charcoal-lighter);
+    --secondary-foreground: var(--text-primary);
+    --muted: var(--charcoal-lighter);
+    --muted-foreground: var(--text-muted);
+    --accent: var(--electric-blue);
+    --accent-foreground: var(--charcoal);
+    --destructive: var(--danger);
+    --destructive-foreground: var(--text-primary);
+    --border: var(--charcoal-lighter);
+    --input: var(--charcoal-lighter);
+    --ring: var(--electric-blue);
+    --radius: 0.75rem;
+
+    /* ResQNet Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--charcoal)), hsl(var(--charcoal-light)));
+    --gradient-electric: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--electric-blue-light)));
+    --gradient-card: linear-gradient(135deg, hsl(var(--charcoal-light)), hsl(var(--charcoal-lighter)));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--electric-blue) / 0.3), transparent 70%);
+    
+    /* ResQNet Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--electric-blue) / 0.3);
+    --shadow-card: 0 10px 40px -10px hsl(var(--charcoal) / 0.8);
+    --shadow-intense: 0 20px 60px -10px hsl(var(--electric-blue) / 0.4);
+    
+    /* ResQNet Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background: hsl(var(--charcoal));
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Font Classes */
+  .font-sora {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  /* ResQNet Component Styles */
+  .btn-electric {
+    @apply bg-gradient-to-r from-electric-blue to-electric-blue-light text-charcoal font-semibold;
+    @apply hover:from-electric-blue-light hover:to-electric-blue-glow;
+    @apply transition-all duration-300 shadow-lg hover:shadow-glow;
+    @apply border-0 rounded-xl px-8 py-3;
+  }
+
+  .btn-electric-outline {
+    @apply border-2 border-electric-blue text-electric-blue bg-transparent font-semibold;
+    @apply hover:bg-electric-blue hover:text-charcoal;
+    @apply transition-all duration-300 rounded-xl px-8 py-3;
+  }
+
+  .card-glass {
+    @apply bg-gradient-to-br from-charcoal-light/80 to-charcoal-lighter/60;
+    @apply backdrop-blur-lg border border-charcoal-lighter/50;
+    @apply rounded-2xl shadow-card;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-electric-blue to-electric-blue-light bg-clip-text text-transparent;
+  }
+
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--charcoal));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--electric-blue));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--electric-blue-light));
+  }
+}
+
+@layer utilities {
+  /* ResQNet Utility Classes */
+  .bg-charcoal {
+    background-color: hsl(var(--charcoal));
+  }
+
+  .bg-charcoal-light {
+    background-color: hsl(var(--charcoal-light));
+  }
+
+  .bg-charcoal-lighter {
+    background-color: hsl(var(--charcoal-lighter));
+  }
+
+  .bg-electric-blue {
+    background-color: hsl(var(--electric-blue));
+  }
+
+  .bg-electric-blue-dark {
+    background-color: hsl(var(--electric-blue-dark));
+  }
+
+  .bg-electric-blue-light {
+    background-color: hsl(var(--electric-blue-light));
+  }
+
+  .text-electric-blue {
+    color: hsl(var(--electric-blue));
+  }
+
+  .text-electric-blue-light {
+    color: hsl(var(--electric-blue-light));
+  }
+
+  .text-primary {
+    color: hsl(var(--text-primary));
+  }
+
+  .text-secondary {
+    color: hsl(var(--text-secondary));
+  }
+
+  .text-muted {
+    color: hsl(var(--text-muted));
+  }
+
+  .border-electric-blue {
+    border-color: hsl(var(--electric-blue));
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-intense {
+    box-shadow: var(--shadow-intense);
+  }
+}
+
+/* Custom Animations */
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 20px hsl(var(--electric-blue) / 0.4);
+  }
+  100% {
+    box-shadow: 0 0 40px hsl(var(--electric-blue) / 0.8);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
